@@ -1,0 +1,27 @@
+<%= render 'layouts/header' %>
+
+<table class="table">
+  <caption>ブックマーク一覧</caption>
+  <thead>
+    <tr>
+      <th></th>
+      <th>タイトル</th>
+      <th>ゲーム詳細</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @favorites.each do |favorite| %>
+      <tr>
+        <td>
+          <%= attachment_image_tag favorite.game_item, :image, :fill, 100, 100, format: 'jpeg' %>
+        </td>
+        <td>
+          <%= link_to game_item_path(favorite.game_item) do %>
+            <%= favorite.game_item.name %>
+          <% end %>
+        </td>
+        <td><%= favorite.game_item.introduction %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

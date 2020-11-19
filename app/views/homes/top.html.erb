@@ -1,0 +1,32 @@
+<%= render 'layouts/header' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <% if @genres %>
+        <%= render 'game_items/search', genres: @genres %>
+        <%= link_to '人気ランキング', root_path %>
+      <% end %>
+    </div>
+<div class="col-xs-9">
+  <div class="">
+    <h2>welcome to Gamers</h2>
+    <p>No Game No Life</p>
+  </div>
+ <h2>オススメ商品</h2>
+  <div class="recommended-item">
+    <% if @game_items %>
+      <% @game_items.each do |game_item| %>
+      <% if game_item.genre.is_active %>
+        <div class="box1">
+          <%= link_to game_item_path(game_item) do %>
+             <%= attachment_image_tag game_item, :image, :fill, 180, 120, format: 'jpeg' %>
+             <%= game_item.name %>
+          <% end %>
+        </div>
+      <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+</div>

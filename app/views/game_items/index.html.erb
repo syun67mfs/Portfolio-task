@@ -1,0 +1,31 @@
+<%= render 'layouts/header' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+        <%= render 'game_items/search',  genres: @genres %>
+    </div>
+
+    <div class="col-xs-9">
+      <div class="">
+
+<h2><%= @title %>一覧</h2>
+        <h4>全<%= @game_items.count %>件</h4>
+      </div>
+      <div class="">
+        <% @game_items.each do |game_item| %>
+        <% if game_item.genre.is_active %>
+          <div class="">
+            <%= link_to game_item_path(game_item) do %>
+              <%= attachment_image_tag game_item, :image, :fill, 180, 120, format: 'jpeg' %>
+              <%= game_item.name %>
+            <% end %>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to '投稿', new_game_item_path %>

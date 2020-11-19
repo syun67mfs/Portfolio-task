@@ -1,0 +1,45 @@
+<%= render 'layouts/header' %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-10">
+
+      <h2>ユーザー編集</h2>
+
+      <%= form_with model: @user, local: true do |f| %>
+
+      <table class="table">
+        <tr>
+          <th>
+            <div class="field">
+          		 <%= attachment_image_tag @user, :profile_image, :fill, 400, 300, fallback: "no_image.jpg" %>
+               <%= f.attachment_field :profile_image %>
+	          </div>
+          </th>
+        </tr>
+
+        <tr>
+          <th>
+             <form class="form-horizontal">
+      		      <div class="">
+      			      Name<%= f.text_field :name, class: 'form-control' %>
+      		      </div>
+      	    </form>
+          </th>
+        </tr>
+        <tr>
+           <th>
+             <form class="form-horizontal">
+      		      <div class="">
+      			      introduction<%= f.text_field :introduction, class: 'form-control' %>
+      		      </div>
+      	    </form>
+          </th>
+        </tr>
+      </table>
+      <div class="actions">
+        <%= f.submit "変更", class: "btn btn-primary" %>
+      </div>
+      <% end %>
