@@ -6,12 +6,12 @@
         <a href="https://www.callofduty.com/ja/blackopscoldwar">
           <%= image_tag asset_path('cod.png'), :size =>'270x150', class: 'logo_image' %>
         </a>
-        <!--< if @genres %>-->
+        <% if @genres %>
           <%= render 'game_items/search', genres: @genres %>
           <%= link_to '人気ランキング', root_path %>
-          
+
           <!--ランキングを表示させたい-->
-        <!--< end %>-->
+        <% end %>
       </div>
       <div class="col-xs-9">
         <div class="jumbotron">
@@ -32,7 +32,7 @@
       <div class="col-xs-4">
        <h4 class="recommend-items">オススメ</h4>
         <div class="recommended-item">
-          <!--< if @game_items %>-->
+          <% if @game_items %>
             <% @game_items.each do |game_item| %>
             <% if game_item.genre.is_active %>
               <div class="box1">
@@ -43,7 +43,7 @@
               </div>
             <% end %>
             <% end %>
-          <!--< end %>-->
+          <% end %>
         </div>
       </div>
       <div class="col-xs-1">

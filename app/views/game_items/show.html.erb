@@ -46,11 +46,12 @@
           <td><%= link_to "ブックマーク", game_item_favorites_path(@game_item), method: :post %></td>
         <% end %>
 
+        <% if user_signed_in? %>
         <% if @game_item.user.id == current_user.id %>
 
   		  	<td><%= link_to "Edit", edit_game_item_path(@game_item), class: "btn-sm btn-success edit_game_item_#{@game_item.id}" %></td>
   		  	<td><%= link_to "Destroy", game_item_path(@game_item), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_game_item_#{@game_item.id}" %></td>
-
+  		  <% end %>
 		  	<% end %>
       </div>
       </div>

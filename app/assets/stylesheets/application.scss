@@ -98,10 +98,37 @@ logo_image {
   background-image: image-url("bcg3.png");
 }
 
-.favorite-items {
-  background-color: #fff;
-}
+// .favorite-items {
+//   background-color: #fff;
+// }
 
 .users-body {
   background-image: image-url("bcg3.png");
+}
+
+.item-image {
+  text-align: center;
+}
+
+.item-text {
+  text-align: center;
+}
+
+.user_image {
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width:  100px;       /* ※縦横を同値に */
+  height: 100px;       /* ※縦横を同値に */
+}
+
+.favorite_image {
+  margin-left: 120px;
+}
+
+.page-top {
+  display: flex;
+}
+
+.site {
+  margin-left: 500px;
+  font-family: "cursive";
 }

@@ -5,5 +5,6 @@ class Favorite < ApplicationRecord
   attachment :image, destroy: false
   attachment :profile_image, destroy: false
 
+
   validates :user_id, uniqueness: { scope: :game_item_id }
 end

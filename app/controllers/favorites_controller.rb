@@ -2,7 +2,6 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    # @user = User.find(params[:id])
     @genres = Genre.where(is_active: true)
     @favorites = Favorite.where(user_id: current_user.id)
     @genre = @genres.find_by(id: params[:search])

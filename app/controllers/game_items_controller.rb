@@ -54,7 +54,7 @@ class GameItemsController < ApplicationController
 
  private
   def game_item_params
-    params.require(:game_item).permit(:name, :introduction, :price, :image, :genre_id, :is_active)
+    params.require(:game_item).permit(:name, :introduction, :price, :image, :genre_id, :is_active, :rate)
   end
 
   def ensure_correct_game_item

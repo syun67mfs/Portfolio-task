@@ -1,7 +1,5 @@
 <%= render 'layouts/header' %>
 
-<h2>about</h2>
-
 <div id="sampleCarousel" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
 		<li class="active" data-target="#sampleCarousel" data-slide-to="0"></li>
@@ -10,17 +8,31 @@
 	</ol>
 	<div class="carousel-inner" role="listbox">
 		<div class="item active">
-			<%= image_tag asset_path('apex5.png'), :size =>'500x350', class: 'about_image' %>
+			<div class="item-image">
+			  <%= image_tag asset_path('apex5.png'), :size =>'500x350', class: 'about_image' %>
+			</div>
+			<div class="item-text">
 			<h2>1.入力</h2>
-			<p>紹介したいゲーム名・評価・内容・ジャンル・価格を入力します</p>
+			  <p>紹介したいゲーム名・評価・内容・ジャンル・価格を入力します</p>
+			</div>
 		</div>
 		<div class="item">
+		<div class="item-image">
 			<%= image_tag asset_path('fallguys.png'), :size =>'500x350', class: 'about_image' %>
+		</div>
+		<div class="item-text">
 			<h2>2.投稿</h2>
+			<p>1.で入力したゲーム情報をゲーム一覧に登録出来ます。他の人の投稿もゲーム一覧で見れます。</p>
+		</div>
 		</div>
 		<div class="item">
+		<div class="item-image">
 			<%= image_tag asset_path('R6.png'), :size =>'500x350', class: 'about_image' %>
+		</div>
+		<div class="item-text">
 			<h2>3.お気に入り登録</h2>
+			<p>気に入ったゲームを登録しお気に入りページでいつでもすぐに見れる様になります。</p>
+		</div>
 		</div>
 	</div>
 	<a class="left carousel-control" href="#sampleCarousel" role="button" data-slide="prev">

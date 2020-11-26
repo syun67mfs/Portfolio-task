@@ -40,14 +40,14 @@
                 <% end %>
               </td>
               <td>
-                  <div id="star">
+                  <div id="star_<%= game_item.id %>">
                     <script>
-                      $('#star').raty({
+                      $('#star_<%= game_item.id %>').raty({
                         size : 36,
                         starOff: '<%= asset_path('star-off.png') %>',
                         starOn: '<%= asset_path('star-on.png') %>',
                         starHalf: '<%= asset_path('star-half.png') %>',
-                        score: 'game_item[rate]',
+                        score: '<%= game_item.rate %>',
                         half: true,
                         readOnly: true,
                       });

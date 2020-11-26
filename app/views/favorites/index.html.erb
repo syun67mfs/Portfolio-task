@@ -15,22 +15,31 @@
               </tr>
             <% end %>
           </table>
+          <a href="https://www.konami.com/pawa/2020/">
+            <%= image_tag asset_path('2020.png'), :size =>'250x200' %>
+          </a>
+          <%= link_to '人気ランキング', root_path %>
       </div>
 
   <div class="col-xs-9">
 
   <tr>
     <th>
-      <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", :size =>'100x100'%>
+      <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", :size =>'100x100', class: "user_image" %>
     </th>
-    <th><%= current_user.name %></th>
+    <th class="user_name">
+      <%= current_user.name %>
+    </th>
+    <a href="https://www.capcom.co.jp/biohazard2/">
+      <%= image_tag asset_path('bio.png'), :size =>'550x200', class: 'favorite_image' %>
+    </a>
   </tr>
 
    <h2><%= @title %>一覧</h2>
       <h4>全<%= @game_items.count %>件</h4>
 <div class="favorite-items">
   <table class="table">
-    <caption>ブックマーク一覧</caption>
+    <caption>お気に入り一覧</caption>
     <thead>
       <tr>
         <th></th>
@@ -43,7 +52,7 @@
       <% @favorites.each do |favorite| %>
         <tr>
           <td>
-            <%= attachment_image_tag favorite.game_item, :image, :fill, 250, 200, format: 'jpeg' %>
+            <%= attachment_image_tag favorite.game_item, :image, :fill, 250, 200, format: 'jpeg', :size =>'170x150'  %>
           </td>
           <td>
             <%= link_to game_item_path(favorite.game_item) do %>
