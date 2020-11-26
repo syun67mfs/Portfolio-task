@@ -1,3 +1,34 @@
 <%= render 'layouts/header' %>
 
 <h2>about</h2>
+
+<div id="sampleCarousel" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<li class="active" data-target="#sampleCarousel" data-slide-to="0"></li>
+		<li data-target="#sampleCarousel" data-slide-to="1"></li>
+		<li data-target="#sampleCarousel" data-slide-to="2"></li>
+	</ol>
+	<div class="carousel-inner" role="listbox">
+		<div class="item active">
+			<%= image_tag asset_path('apex5.png'), :size =>'500x350', class: 'about_image' %>
+			<h2>1.入力</h2>
+			<p>紹介したいゲーム名・評価・内容・ジャンル・価格を入力します</p>
+		</div>
+		<div class="item">
+			<%= image_tag asset_path('fallguys.png'), :size =>'500x350', class: 'about_image' %>
+			<h2>2.投稿</h2>
+		</div>
+		<div class="item">
+			<%= image_tag asset_path('R6.png'), :size =>'500x350', class: 'about_image' %>
+			<h2>3.お気に入り登録</h2>
+		</div>
+	</div>
+	<a class="left carousel-control" href="#sampleCarousel" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<span class="sr-only">前へ</span>
+	</a>
+	<a class="right carousel-control" href="#sampleCarousel" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<span class="sr-only">次へ</span>
+	</a>
+</div>

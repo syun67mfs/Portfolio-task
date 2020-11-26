@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_15_023007) do
+ActiveRecord::Schema.define(version: 2020_11_23_023955) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,14 +24,22 @@ ActiveRecord::Schema.define(version: 2020_11_15_023007) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "game_item_id"
+  create_table "comments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "game_item_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
     t.string "name"
     t.string "image_id"
+    t.integer "user_id"
+    t.integer "game_item_id"
     t.text "introduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["game_item_id"], name: "index_favorites_on_game_item_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
@@ -44,9 +52,9 @@ ActiveRecord::Schema.define(version: 2020_11_15_023007) do
     t.text "introduction"
     t.integer "price"
     t.integer "genre_id"
-    t.boolean "is_active", default: true
     t.integer "user_id"
-    t.float "rate", default: 0.0
+    t.boolean "is_active", default: true
+    t.float "rate", default: 0.0, null: false
   end
 
   create_table "genres", force: :cascade do |t|

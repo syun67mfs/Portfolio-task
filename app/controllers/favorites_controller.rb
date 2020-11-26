@@ -2,7 +2,18 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    # @user = User.find(params[:id])
+    @genres = Genre.where(is_active: true)
     @favorites = Favorite.where(user_id: current_user.id)
+    @genre = @genres.find_by(id: params[:search])
+    unless @genre.nil?
+      @game_items = GameItem.where(genre_id: @genre.id, is_active: true)
+      @title = @genre.name
+    else
+      @game_items = GameItem.all
+      @title = "ゲーム"
+    end
+
   end
 
   def create
@@ -25,4 +36,5 @@ class FavoritesController < ApplicationController
         redirect_to request.referer
     end
   end
+
 end

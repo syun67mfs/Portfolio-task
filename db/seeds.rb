@@ -13,7 +13,7 @@ User.create(
   )
 
 Genre.create(name: 'PS4')
- Genre.create(name: 'PS5')
- Genre.create(name: 'Xbox')
- Genre.create(name: 'Switch')
- Genre.create(name: 'PC')
+Genre.create(name: 'PS5')
+Genre.create(name: 'Xbox')
+Genre.create(name: 'Switch')
+Genre.create(name: 'PC')

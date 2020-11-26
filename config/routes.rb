@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users
   resources :game_items, only: [:index,:new,:create,:show,:edit,:update,:destroy], except: [:index] do
     resource :favorites, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   resources :favorites, only: [:index]
 

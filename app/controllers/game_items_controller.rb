@@ -1,4 +1,7 @@
 class GameItemsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :update]
+  # before_action :ensure_correct_game_item, only: [:edit,:update]
+
   def index
     @game_item = GameItem.new
     @genres = Genre.where(is_active: true)
@@ -15,6 +18,7 @@ class GameItemsController < ApplicationController
   def show
     @genres = Genre.where(is_active: true)
     @game_item = GameItem.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -51,5 +55,12 @@ class GameItemsController < ApplicationController
  private
   def game_item_params
     params.require(:game_item).permit(:name, :introduction, :price, :image, :genre_id, :is_active)
+  end
+
+  def ensure_correct_game_item
+    @game_item = GameItem.find(params[:id])
+    unless @game_item.user_id == current_user.id
+      redirect_to game_items_path
+    end
   end
 end

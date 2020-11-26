@@ -1,9 +1,11 @@
 <%= render 'layouts/header' %>
+<div class="users-body">
+
 <div class="container">
   <div class="row">
   	<div class="col-xs-3">
 		<table class="table">
-			<tr><%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></tr>
+			<tr><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></tr>
 			<!--丸のサムネに変更予定-->
 
 			<tr>
@@ -18,7 +20,7 @@
 		</table>
 		<% if @user.id == current_user.id %>
 			<div class="row">
-				<%= link_to '編集', edit_user_path(current_user), class:"btn btn-default" %>
+				<%= link_to '', edit_user_path(current_user), class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{@user.id}" %>
 			</div>
 		<% end %>
 	</div>
@@ -39,7 +41,7 @@
 	  		<tr>
 		  		<th>
 		  			<%= link_to game_item_path(game_item) do %>
-		  				<%= attachment_image_tag game_item, :image, :fill, 100, 100, format: 'jpeg' %>
+		  				<%= attachment_image_tag game_item, :image, :fill, 100, 100, fallback: "no_image.jpg", :size =>'100x100'%>
 		  			<% end %>
 		  		</th>
 		  		<th>
@@ -54,4 +56,6 @@
 	  </table>
 	</div>
   </div>
+</div>
+
 </div>

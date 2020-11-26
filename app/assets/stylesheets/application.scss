@@ -15,3 +15,93 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+logo_image {
+  background-image: image-url("top.jpg");
+}
+
+.recommend-items {
+  position: relative;
+  color: #fff;
+  background: #000000;
+  line-height: 1.4;
+  padding: 0.25em 0.5em;
+  margin: 2em 0 0.5em;
+  border-radius: 0 5px 5px 5px;
+}
+
+.recommend-items:after {
+  /*タブ*/
+  position: absolute;
+  font-family: "Font Awesome 5 Free",'Quicksand','Avenir','Arial',sans-serif;
+  font-weight: 900;
+  content: '\f00c Check';
+  background: #000000;
+  color: #fff;
+  left: 0px;
+  bottom: 100%;
+  border-radius: 5px 5px 0 0;
+  padding: 3px 7px 1px;
+  font-size: 0.7em;
+  line-height: 1;
+  letter-spacing: 0.05em
+}
+
+.new-arrival {
+  position: relative;
+  color: #fff;
+  background: #000000;
+  line-height: 1.4;
+  padding: 0.25em 0.5em;
+  margin: 2em 0 0.5em;
+  border-radius: 0 5px 5px 5px;
+}
+
+.new-arrival:after {
+  /*タブ*/
+  position: absolute;
+  font-family: "Font Awesome 5 Free",'Quicksand','Avenir','Arial',sans-serif;
+  font-weight: 900;
+  content: '\f00c Check';
+  background: #000000;
+  color: #fff;
+  left: 0px;
+  bottom: 100%;
+  border-radius: 5px 5px 0 0;
+  padding: 3px 7px 1px;
+  font-size: 0.7em;
+  line-height: 1;
+  letter-spacing: 0.05em
+}
+
+.jumbotron {
+  background-image: image-url("tsushima.png");
+  color: #fff;
+  // background-image: rgba(255,255,255,0.8);
+  // background-blend-mode:lighten;
+  // color: #000000;
+}
+
+.body {
+  background-image: image-url("bcg3.png");
+}
+
+.recommended-item {
+  background-color: #fff;
+}
+
+.new-items {
+  background-color: #fff;
+}
+
+.favorite-body {
+  background-image: image-url("bcg3.png");
+}
+
+.favorite-items {
+  background-color: #fff;
+}
+
+.users-body {
+  background-image: image-url("bcg3.png");
+}

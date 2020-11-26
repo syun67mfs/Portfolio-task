@@ -1,27 +1,65 @@
 <%= render 'layouts/header' %>
 
-<table class="table">
-  <caption>ブックマーク一覧</caption>
-  <thead>
-    <tr>
-      <th></th>
-      <th>タイトル</th>
-      <th>ゲーム詳細</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @favorites.each do |favorite| %>
+<div class="favorite-body">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3">
+        <h4 class="text-center">プラットフォーム</h4>
+          <table class="table table-hover table-inverse">
+            <% @genres.each do |genre| %>
+              <tr>
+                <td class="text-center">
+                  <%= link_to "#{genre.name}", favorites_path(search: genre.id) %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+      </div>
+
+  <div class="col-xs-9">
+
+  <tr>
+    <th>
+      <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", :size =>'100x100'%>
+    </th>
+    <th><%= current_user.name %></th>
+  </tr>
+
+   <h2><%= @title %>一覧</h2>
+      <h4>全<%= @game_items.count %>件</h4>
+<div class="favorite-items">
+  <table class="table">
+    <caption>ブックマーク一覧</caption>
+    <thead>
       <tr>
-        <td>
-          <%= attachment_image_tag favorite.game_item, :image, :fill, 100, 100, format: 'jpeg' %>
-        </td>
-        <td>
-          <%= link_to game_item_path(favorite.game_item) do %>
-            <%= favorite.game_item.name %>
-          <% end %>
-        </td>
-        <td><%= favorite.game_item.introduction %></td>
+        <th></th>
+        <th>タイトル</th>
+        <th>ゲーム詳細</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @favorites.each do |favorite| %>
+        <tr>
+          <td>
+            <%= attachment_image_tag favorite.game_item, :image, :fill, 250, 200, format: 'jpeg' %>
+          </td>
+          <td>
+            <%= link_to game_item_path(favorite.game_item) do %>
+              <%= favorite.game_item.name %>
+            <% end %>
+          </td>
+          <td><%= favorite.game_item.introduction %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+  </div>
+
+</div>
+</div>
+
+</div>

@@ -17,20 +17,19 @@
       </tr>
       <tr>
         <div class="form_group" id="star">
-              <%= f.label :rate,'評価', class:'col-md-3 col-form-label'%>
-              <%= f.hidden_field :rate, id: :review_star %>
-            </div>
-            <script>
-              $('#star').raty({
-                size : 36,
-                starOff: '<%= asset_path('star-off.png') %>',
-                starOn: '<%= asset_path('star-on.png') %>',
-                starHalf: '<%= asset_path('star-half.png') %>',
-                scoreName: 'game_item[rate]',
-                half: true,
-              });
-            </script>
+          <%= f.label :rate,'評価', class:'col-md-3 col-form-label'%>
+          <%= f.hidden_field :rate, id: :review_star %>
         </div>
+        <script>
+          $('#star').raty({
+            size : 36,
+            starOff: '<%= asset_path('star-off.png') %>',
+            starOn: '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'game_item[rate]',
+            half: true,
+          });
+        </script>
       </tr>
       <tr>
         <div class="form_group">
