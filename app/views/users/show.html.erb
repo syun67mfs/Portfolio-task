@@ -45,7 +45,9 @@
 		  			<% end %>
 		  		</th>
 		  		<th>
+		  		  <%= link_to game_item_path(game_item) do %>
 		  			<%= game_item.name %>
+		  		  <% end %>
 		  		</th>
 		  		<th>
 		  			<%= game_item.introduction %>
