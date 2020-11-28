@@ -7,7 +7,9 @@
     <div class="row">
       <div class="col-xs-3">
           <%= render 'game_items/search',  genres: @genres %>
+        <div class="new_post">
           <%= link_to '投稿する', new_game_item_path, class: "btn btn-primary"%>
+        </div>
       </div>
 
       <!--ここにランキングを入れたい-->
@@ -41,19 +43,20 @@
                 <% end %>
               </td>
               <td>
-                  <div id="star_<%= game_item.id %>">
-                    <script>
-                      $('#star_<%= game_item.id %>').raty({
-                        size : 36,
-                        starOff: '<%= asset_path('star-off.png') %>',
-                        starOn: '<%= asset_path('star-on.png') %>',
-                        starHalf: '<%= asset_path('star-half.png') %>',
-                        score: '<%= game_item.rate %>',
-                        half: true,
-                        readOnly: true,
-                      });
-                    </script>
-                  </div>
+                <div id="star_<%= game_item.id %>">
+                  <script data-turbolinks-eval="false">
+                    $('#star_<%= game_item.id %>').raty({
+                      size : 36,
+                      starOff: '<%= asset_path('star-off.png') %>',
+                      starOn: '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      score: '<%= game_item.rate %>',
+                      half: true,
+                      readOnly: true,
+                    });
+                  </script>
+                </div>
+                </div>
               </td>
               <% end %>
               <% end %>

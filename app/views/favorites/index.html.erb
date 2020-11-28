@@ -18,7 +18,9 @@
           <a href="https://www.konami.com/pawa/2020/">
             <%= image_tag asset_path('2020.png'), :size =>'250x200' %>
           </a>
-          <%= link_to '人気ランキング', root_path %>
+          <div class="favorite_post">
+          <%= link_to '投稿する', new_game_item_path, class: "btn btn-primary"%>
+        </div>
       </div>
 
   <div class="col-xs-9">

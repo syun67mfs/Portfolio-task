@@ -1,14 +1,19 @@
 <%= render 'layouts/header' %>
 
+<div class="game_show_body">
+
 <div class="container">
   <div class="row">
 
     <div class="col-xs-3">
         <%= render 'game_items/search' %>
+        <div class="new_post">
+          <%= link_to '投稿する', new_game_item_path, class: "btn btn-primary"%>
+        </div>
     </div>
     <div class="col-xs-4">
       <div class="item-show-img">
-        <%= attachment_image_tag @game_item, :image, :fill, 340, 200, fallback: "no_image.jpg" %>
+        <%= attachment_image_tag @game_item, :image, :fill, 340, 200, fallback: "no_image.jpg", :size => '250x200'%>
       </div>
     </div>
 
@@ -25,7 +30,7 @@
         <tr>
           <div id="star-rate-<%= @game_item.id %>"></div>
 
-            <script>
+            <script data-turbolinks-eval="false">
               $('#star-rate-<%= @game_item.id %>').raty({
               // $('#star').raty({
                 size : 36,
@@ -41,9 +46,9 @@
         </tr>
 
         <% if @game_item.favorited_by?(current_user) %>
-          <td><%= link_to "ブックマークを外す", game_item_favorites_path(@game_item), method: :delete %></td>
+          <td><%= link_to "お気に入り", game_item_favorites_path(@game_item), method: :delete %></td>
         <% else %>
-          <td><%= link_to "ブックマーク", game_item_favorites_path(@game_item), method: :post %></td>
+          <td><%= link_to "お気に入りを外す", game_item_favorites_path(@game_item), method: :post %></td>
         <% end %>
 
         <% if user_signed_in? %>
@@ -54,13 +59,12 @@
   		  <% end %>
 		  	<% end %>
       </div>
-      </div>
 
       <div class="row">
         <div class="col-xs-3">
         </div>
 
-      <div class="col-xs-7">
+      <div class="col-xs-4">
         <h3>コメント</h3>
 
         <% @game_item.comments.each do |comment| %>
@@ -82,8 +86,10 @@
           	</div>
           </div>
         </tr>
-
         <% end %>
+      </div>
+
+      <div class="col-xs-3">
 
         <%= form_for [@game_item, @comment] do |f| %>
           <div class="form_group">
@@ -91,8 +97,8 @@
     			</div>
     			  <%= f.submit "送信", class: "btn btn-default" %>
   			<% end %>
-      </div>
-      </div>
-	    </div>
+
+  		</div>
     </div>
   </div>
+</div>

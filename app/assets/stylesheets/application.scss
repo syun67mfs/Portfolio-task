@@ -136,3 +136,25 @@ logo_image {
 .game_item-body {
   background-image: image-url("bcg3.png");
 }
+
+.game_show_body {
+  background-image: image-url("bcg3.png");
+}
+
+.new_post {
+  position: fixed;
+  left: 220px;
+  bottom: 350px;
+}
+
+.top_new_post {
+  position: fixed;
+  left: 220px;
+  bottom: 230px;
+}
+
+.favorite_post {
+  position: fixed;
+  left: 220px;
+  bottom: 150px;
+}

@@ -8,10 +8,11 @@
         </a>
         <% if @genres %>
           <%= render 'game_items/search', genres: @genres %>
-          <%= link_to '人気ランキング', root_path %>
-
           <!--ランキングを表示させたい-->
         <% end %>
+        <div class="top_new_post">
+          <%= link_to '投稿する', new_game_item_path, class: "btn btn-primary"%>
+        </div>
       </div>
       <div class="col-xs-9">
         <div class="jumbotron">
