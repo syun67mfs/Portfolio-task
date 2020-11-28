@@ -30,7 +30,8 @@
         <tr>
           <div id="star-rate-<%= @game_item.id %>"></div>
 
-            <script data-turbolinks-eval="false">
+            <script>
+            if ($('#star-rate-<%= @game_item.id %>').children().length === 0) {
               $('#star-rate-<%= @game_item.id %>').raty({
               // $('#star').raty({
                 size : 36,
@@ -41,6 +42,7 @@
                 half: true,
                 readOnly: true,
               });
+            }
             </script>
           </div>
         </tr>

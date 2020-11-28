@@ -44,7 +44,8 @@
               </td>
               <td>
                 <div id="star_<%= game_item.id %>">
-                  <script data-turbolinks-eval="false">
+                  <script>
+                  if ($('#star_<%= game_item.id %>').children().length === 1) {
                     $('#star_<%= game_item.id %>').raty({
                       size : 36,
                       starOff: '<%= asset_path('star-off.png') %>',
@@ -54,6 +55,9 @@
                       half: true,
                       readOnly: true,
                     });
+
+                  }
+
                   </script>
                 </div>
                 </div>
