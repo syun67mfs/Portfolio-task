@@ -10,7 +10,7 @@
           <%= render 'game_items/search', genres: @genres %>
           <!--ランキングを表示させたい-->
         <% end %>
-        <div class="top_new_post">
+        <div class="new_post">
           <%= link_to '投稿する', new_game_item_path, class: "btn btn-primary"%>
         </div>
       </div>
@@ -35,7 +35,7 @@
         <div class="recommended-item">
           <% if @game_items %>
             <% @game_items.each do |game_item| %>
-            <% if game_item.genre.is_active %>
+            <% if game_item.genre %>
               <div class="box1">
                 <%= link_to game_item_path(game_item) do %>
                    <%= attachment_image_tag game_item, :image, :fill, 170, 150, fallback: "no_image.jpg", :size => '170x150' %>
@@ -54,7 +54,7 @@
         <div class="new-items">
           <% if @game_items %>
             <% @game_item_new.each.with_index(1) do |game_item| %>
-              <% if game_item.genre.is_active %>
+              <% if game_item.genre %>
                 <div class="box1">
                   <%= link_to game_item_path(game_item) do %>
                     <%= attachment_image_tag game_item, :image, :fill, 170, 150, fallback: "no_image.jpg", :size => '170x150' %>

@@ -30,7 +30,7 @@
 
           <tbody>
               <% @game_items.each do |game_item| %>
-              <% if game_item.genre.is_active %>
+              <% if game_item.genre %>
             <tr>
               <td>
                 <%= link_to game_item_path(game_item) do %>
@@ -45,7 +45,7 @@
               <td>
                 <div id="star_<%= game_item.id %>">
                   <script>
-                  if ($('#star_<%= game_item.id %>').children().length === 1) {
+                  if ($('#star_<%= game_item.id %>').children().length === ) {
                     $('#star_<%= game_item.id %>').raty({
                       size : 36,
                       starOff: '<%= asset_path('star-off.png') %>',
