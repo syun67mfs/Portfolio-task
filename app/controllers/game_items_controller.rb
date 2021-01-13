@@ -30,6 +30,7 @@ class GameItemsController < ApplicationController
     @game_item.user_id = current_user.id
     if @game_item.save
       redirect_to game_items_path
+    else @game_item
     end
   end
 

@@ -11,6 +11,7 @@ class GameItem < ApplicationRecord
     less_than_or_equal_to: 5,
     greater_than_or_equal_to: 0.5
   }, presence: true
+  validates :genre_id, presence: true
 
   def favorited_by?(user)
     favorites.where(user_id: user).exists?
