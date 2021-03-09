@@ -1,6 +1,17 @@
 <%= render 'layouts/header' %>
 
 <%= form_with model: @game_item, local:true do |f| %>
+
+  <% if @game_item.errors.any? %>
+		<div id="error_explanation">
+			<h3><%= @game_item.errors.count %>error prohibited this obj from being saved:</h3>
+			<ul>
+				<% @game_item.errors.full_messages.each do |message| %>
+				  <li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
  <div class="">
     <table class="table">
       <tr>

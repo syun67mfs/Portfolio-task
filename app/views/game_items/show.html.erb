@@ -48,9 +48,9 @@
         </tr>
 
         <% if @game_item.favorited_by?(current_user) %>
-          <td><%= link_to "お気に入り", game_item_favorites_path(@game_item), method: :delete %></td>
+          <td><%= link_to "お気に入りを外す", game_item_favorites_path(@game_item), method: :delete %></td>
         <% else %>
-          <td><%= link_to "お気に入りを外す", game_item_favorites_path(@game_item), method: :post %></td>
+          <td><%= link_to "お気に入り", game_item_favorites_path(@game_item), method: :post %></td>
         <% end %>
 
         <% if user_signed_in? %>
@@ -85,6 +85,9 @@
         	</td>
           		</h4>
           		<%= comment.comment %>
+          		<% if comment.user == current_user %>
+        		  	<td><%= link_to "Destroy", game_item_comment_path(@game_item, comment), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_game_item_#{@game_item.id}" %></td>
+        		  <% end %>
           	</div>
           </div>
         </tr>

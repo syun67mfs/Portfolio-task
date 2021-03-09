@@ -4,12 +4,12 @@ class FavoritesController < ApplicationController
   def index
     @genres = Genre.where(is_active: true)
     @favorites = Favorite.where(user_id: current_user.id)
-    @genre = @genres.find_by(id: params[:search])
+    # @genre = @genres.favorites.find_by(id: params[:search])
     unless @genre.nil?
       @game_items = GameItem.where(genre_id: @genre.id, is_active: true)
       @title = @genre.name
     else
-      @game_items = GameItem.all
+      @favorites = Favorite.all
       @title = "ゲーム"
     end
 

@@ -29,8 +29,10 @@ class GameItemsController < ApplicationController
     @game_item = GameItem.new(game_item_params)
     @game_item.user_id = current_user.id
     if @game_item.save
+      flash[:notice] = "Game was successfully posted."
       redirect_to game_items_path
-    else @game_item
+    else
+      render "new"
     end
   end
 
